@@ -9,8 +9,6 @@
             --bg-color: #121212;
             --text-main: #f5f5f5;
             --text-muted: #a0a0a0;
-            --gladiator-red: #ff4d4d;
-            --gladiator-blue: #4da6ff;
             --iron: #a0aec0;
             --gold: #ecc94b;
         }
@@ -58,11 +56,11 @@
             max-width: 480px;
         }
 
-        /* --- THE GLADIATOR STAGE (The Red Box Target) --- */
+        /* --- THE BATTLE STAGE (Now a Galloping Loading Field) --- */
         .battle-stage {
             width: 100%;
             max-width: 450px;
-            height: 140px;
+            height: 160px;
             margin-top: 35px;
             background: #1a1a1a;
             border: 1px solid #2d2d2d;
@@ -72,199 +70,227 @@
             box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
         }
 
-        /* Arena Floor Ground Line */
+        /* Arena Floor / Ground Line with Moving Texture for Galloping Illusion */
         .floor {
             position: absolute;
-            bottom: 25px;
-            left: 5%;
-            width: 90%;
+            bottom: 30px;
+            left: 0;
+            width: 200%;
             height: 2px;
-            background: #333333;
+            background: repeating-linear-gradient(90deg, #333 0px, #333 20px, transparent 20px, transparent 40px);
+            animation: scrollLandscape 0.6s infinite linear;
         }
 
-        /* Base Gladiator Anatomy Setup */
-        .gladiator {
+        /* --- THE STICK-FIGURE RIDER & HORSE --- */
+        .alexander-container {
             position: absolute;
-            bottom: 27px;
-            width: 24px;
-            height: 38px;
-            transform-origin: bottom center;
+            bottom: 32px;
+            left: 40%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 95px;
+            animation: horseBodyBob 0.3s infinite alternate ease-in-out;
         }
 
-        /* Helmets, Chest, and Shields */
-        .body-armor {
-            width: 100%;
-            height: 26px;
-            border-radius: 4px;
+        /* --- THE HORSE (BUCEPHALUS) --- */
+        .horse-body {
             position: absolute;
-            bottom: 12px;
-            box-shadow: inset 0 2px 5px rgba(255,255,255,0.2);
+            bottom: 25px;
+            left: 20px;
+            width: 55px;
+            height: 24px;
+            border: 3px solid var(--text-main);
+            border-radius: 12px;
+            background: #1a1a1a;
         }
 
-        .helmet {
+        .horse-neck {
+            position: absolute;
+            top: -15px;
+            left: -10px;
             width: 16px;
-            height: 14px;
-            background: var(--iron);
-            border-radius: 4px 4px 0 0;
-            position: absolute;
-            top: -12px;
-            left: 4px;
+            height: 25px;
+            border-left: 3px solid var(--text-main);
+            border-top: 3px solid var(--text-main);
+            transform: rotate(-25deg);
+            border-radius: 6px 0 0 0;
         }
 
-        .plume {
-            width: 6px;
+        .horse-head {
+            position: absolute;
+            top: -10px;
+            left: -15px;
+            width: 18px;
+            height: 10px;
+            border: 3px solid var(--text-main);
+            border-radius: 5px;
+            background: #1a1a1a;
+            transform: rotate(35deg);
+        }
+
+        .horse-tail {
+            position: absolute;
+            right: -14px;
+            top: 2px;
+            width: 15px;
             height: 8px;
-            position: absolute;
-            top: -7px;
-            left: 5px;
-            border-radius: 2px;
+            border-top: 3px solid var(--text-main);
+            border-right: 3px solid var(--text-main);
+            border-radius: 0 8px 0 0;
+            transform-origin: left top;
+            animation: tailFlutter 0.2s infinite alternate ease-in-out;
         }
 
-        .shield {
-            width: 6px;
-            height: 16px;
-            background: #718096;
-            border: 1px solid var(--iron);
-            border-radius: 2px;
+        /* Horse Legs & Gallop Mechanics */
+        .horse-leg {
+            position: absolute;
+            width: 3px;
+            height: 25px;
+            background: var(--text-main);
+            transform-origin: top center;
+        }
+        
+        /* Front Legs */
+        .leg-f1 { left: 8px; bottom: -24px; animation: gallopFront 0.3s infinite linear; }
+        .leg-f2 { left: 14px; bottom: -24px; animation: gallopBack 0.3s infinite linear; animation-delay: 0.15s; }
+        /* Back Legs */
+        .leg-b1 { right: 8px; bottom: -24px; animation: gallopBack 0.3s infinite linear; }
+        .leg-b2 { right: 14px; bottom: -24px; animation: gallopFront 0.3s infinite linear; animation-delay: 0.15s; }
+
+        /* --- ALEXANDER THE GREAT --- */
+        .rider-torso {
+            position: absolute;
+            top: -24px;
+            left: 20px;
+            width: 3px;
+            height: 28px;
+            background: var(--text-main);
+            transform: rotate(-5deg);
+        }
+
+        .rider-leg {
+            position: absolute;
+            top: 20px;
+            left: -4px;
+            width: 14px;
+            height: 14px;
+            border-right: 3px solid var(--text-main);
+            border-bottom: 3px solid var(--text-main);
+            transform: rotate(45deg);
+        }
+
+        .rider-head {
+            position: absolute;
+            top: -14px;
+            left: -6px;
+            width: 12px;
+            height: 12px;
+            border: 3px solid var(--text-main);
+            border-radius: 50%;
+            background: #1a1a1a;
+        }
+
+        /* Greek Crested Helmet */
+        .rider-helmet {
+            position: absolute;
+            top: -20px;
+            left: -7px;
+            width: 16px;
+            height: 8px;
+            background: var(--iron);
+            border: 2px solid var(--text-main);
+            border-radius: 8px 8px 0 0;
+        }
+
+        .rider-plume {
+            position: absolute;
+            top: -27px;
+            left: -12px;
+            width: 26px;
+            height: 7px;
+            background: var(--iron);
+            border-radius: 10px 10px 0 0;
+            border-bottom: 2px solid var(--text-main);
+            transform-origin: right bottom;
+            animation: tailFlutter 0.15s infinite alternate;
+        }
+
+        /* Cape Fluttering */
+        .rider-cape {
+            position: absolute;
+            top: 2px;
+            right: -22px;
+            width: 25px;
+            height: 12px;
+            background: #444;
+            border: 2px solid var(--text-main);
+            border-radius: 0 4px 4px 10px;
+            transform-origin: left top;
+            animation: capeFlutter 0.15s infinite alternate ease-in-out;
+        }
+
+        /* Sword Arm Raised Proudly */
+        .rider-arm {
             position: absolute;
             top: 4px;
+            left: -12px;
+            width: 20px;
+            height: 3px;
+            background: var(--text-main);
+            transform: rotate(135deg);
+            transform-origin: right center;
         }
 
-        /* Animated Footwork */
-        .leg {
-            width: 5px;
-            height: 12px;
+        .rider-sword {
             position: absolute;
-            bottom: 0;
-            border-radius: 2px;
-        }
-
-        /* Weapons & Clashing Sparks */
-        .sword {
+            top: -4px;
+            left: -18px;
             width: 22px;
             height: 4px;
             background: var(--iron);
+            border: 1px solid var(--text-main);
             border-radius: 2px;
-            position: absolute;
-            top: 10px;
-            transform-origin: left center;
-            box-shadow: 0 0 4px rgba(255,255,255,0.4);
+            transform: rotate(-45deg);
+            box-shadow: 0 0 6px rgba(255,255,255,0.3);
         }
 
-        .spark-emitter {
-            position: absolute;
-            left: 50%;
-            bottom: 45px;
-            width: 10px;
-            height: 10px;
-            pointer-events: none;
+        /* --- ANIMATIONS TIMINGS --- */
+        
+        /* Simulates moving forward past grid dashes */
+        @keyframes scrollLandscape {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-40px); }
         }
 
-        .spark {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: var(--gold);
-            border-radius: 50%;
-            opacity: 0;
-            animation: burst 2s infinite linear;
+        /* Rhythmic bobbing of a galloping horse */
+        @keyframes horseBodyBob {
+            0% { transform: translateY(0) rotate(2deg); }
+            100% { transform: translateY(-6px) rotate(-2deg); }
         }
 
-        /* --- TEAM RED CONFIGURATION --- */
-        #fighterRed {
-            left: calc(50% - 90px);
-            animation: movementRed 2s infinite ease-in-out, idleBreathing 0.5s infinite alternate ease-in-out;
-        }
-        #fighterRed .body-armor { background: var(--gladiator-red); }
-        #fighterRed .plume { background: var(--gladiator-red); }
-        #fighterRed .shield { left: -4px; }
-        #fighterRed .sword { 
-            right: -18px; 
-            transform-origin: left center;
-            animation: swingRed 2s infinite ease-in-out;
-        }
-        #fighterRed .leg-left { background: #9b2c2c; left: 4px; animation: strideAlternate 0.4s infinite alternate; }
-        #fighterRed .leg-right { background: #9b2c2c; right: 4px; animation: stride 0.4s infinite alternate; }
-
-        /* --- TEAM BLUE CONFIGURATION --- */
-        #fighterBlue {
-            left: calc(50% + 66px);
-            animation: movementBlue 2s infinite ease-in-out, idleBreathing 0.5s infinite alternate ease-in-out;
-            animation-delay: 0.1s;
-        }
-        #fighterBlue .body-armor { background: var(--gladiator-blue); }
-        #fighterBlue .plume { background: var(--gladiator-blue); }
-        #fighterBlue .shield { right: -4px; }
-        #fighterBlue .sword { 
-            left: -18px; 
-            transform-origin: right center;
-            animation: swingBlue 2s infinite ease-in-out;
-        }
-        #fighterBlue .leg-left { background: #2b6cb0; left: 4px; animation: stride; animation-duration: 0.4s; animation-iteration-count: infinite; animation-direction: alternate; }
-        #fighterBlue .leg-right { background: #2b6cb0; right: 4px; animation: strideAlternate; animation-duration: 0.4s; animation-iteration-count: infinite; animation-direction: alternate; }
-
-        /* --- MECHANICS & ANIMATION ACTIONS --- */
-        @keyframes idleBreathing {
-            0% { transform: scaleY(1); }
-            100% { transform: scaleY(1.04); }
+        /* Cape whipping wildly in the wind */
+        @keyframes capeFlutter {
+            0% { transform: rotate(-5deg) scaleY(0.95); }
+            100% { transform: rotate(15deg) scaleY(1.05); }
         }
 
-        @keyframes stride {
-            0% { transform: rotate(-15deg); }
+        /* Tail and helmet plume physics */
+        @keyframes tailFlutter {
+            0% { transform: rotate(-10deg); }
             100% { transform: rotate(15deg); }
         }
-        @keyframes strideAlternate {
-            0% { transform: rotate(15deg); }
-            100% { transform: rotate(-15deg); }
+
+        /* Galloping Legs Archetype Rotation */
+        @keyframes gallopFront {
+            0% { transform: rotate(-35deg); }
+            50% { transform: rotate(30deg) cubic-bezier(0.4, 0, 0.2, 1); }
+            100% { transform: rotate(-35deg); }
         }
 
-        /* Positional lunges and parries */
-        @keyframes movementRed {
-            0%   { transform: translateX(0); }
-            30%  { transform: translateX(45px); } /* Lunge forward */
-            38%  { transform: translateX(42px); } /* The hard impact stop */
-            55%  { transform: translateX(-15px); } /* Tactical backing away */
-            100% { transform: translateX(0); }
-        }
-
-        @keyframes movementBlue {
-            0%   { transform: translateX(0); }
-            28%  { transform: translateX(-35px); } /* Stepping into range */
-            36%  { transform: translateX(-30px); } /* Impact block holding */
-            50%  { transform: translateX(20px); } /* Hopping backward */
-            100% { transform: translateX(0); }
-        }
-
-        /* Sharp weapon swing rotations */
-        @keyframes swingRed {
-            0%   { transform: rotate(-20deg); }
-            28%  { transform: rotate(-45deg); } /* Wind up */
-            34%  { transform: rotate(25deg); }  /* Fast strike down */
-            42%  { transform: rotate(20deg); }  /* Weapon bounce recoil */
-            60%  { transform: rotate(-10deg); } /* Return guard */
-            100% { transform: rotate(-20deg); }
-        }
-
-        @keyframes swingBlue {
-            0%   { transform: rotate(20deg); }
-            26%  { transform: rotate(45deg); }  /* Wind up */
-            32%  { transform: rotate(-25deg); } /* Fast strike down */
-            40%  { transform: rotate(-20deg); } /* Weapon bounce recoil */
-            60%  { transform: rotate(10deg); }  /* Return guard */
-            100% { transform: rotate(20deg); }
-        }
-
-        /* Spark particles shooting outwards at point of contact */
-        .sp1 { animation-delay: 0.33s; --x: 25px; --y: 15px; }
-        .sp2 { animation-delay: 0.33s; --x: -20px; --y: 25px; }
-        .sp3 { animation-delay: 0.33s; --x: 5px; --y: -30px; }
-
-        @keyframes burst {
-            0%   { transform: translate(0, 0); opacity: 0; }
-            16%  { opacity: 1; }
-            22%  { transform: translate(var(--x), var(--y)); opacity: 1; }
-            40%  { transform: translate(var(--x), var(--y)); opacity: 0; }
-            100% { transform: translate(var(--x), var(--y)); opacity: 0; }
+        @keyframes gallopBack {
+            0% { transform: rotate(35deg); }
+            50% { transform: rotate(-30deg) cubic-bezier(0.4, 0, 0.2, 1); }
+            100% { transform: rotate(35deg); }
         }
     </style>
 </head>
@@ -277,30 +303,31 @@
         <div class="battle-stage">
             <div class="floor"></div>
             
-            <div class="gladiator" id="fighterRed">
-                <div class="leg leg-left"></div>
-                <div class="leg leg-right"></div>
-                <div class="body-armor">
-                    <div class="helmet"><div class="plume"></div></div>
-                    <div class="shield"></div>
-                    <div class="sword"></div>
+            <div class="alexander-container">
+                
+                <div class="horse-body">
+                    <div class="horse-neck">
+                        <div class="horse-head"></div>
+                    </div>
+                    <div class="horse-tail"></div>
+                    
+                    <div class="horse-leg leg-f1"></div>
+                    <div class="horse-leg leg-f2"></div>
+                    <div class="horse-leg leg-b1"></div>
+                    <div class="horse-leg leg-b2"></div>
                 </div>
-            </div>
 
-            <div class="spark-emitter">
-                <div class="spark sp1"></div>
-                <div class="spark sp2"></div>
-                <div class="spark sp3"></div>
-            </div>
-
-            <div class="gladiator" id="fighterBlue">
-                <div class="leg leg-left"></div>
-                <div class="leg leg-right"></div>
-                <div class="body-armor">
-                    <div class="helmet"><div class="plume"></div></div>
-                    <div class="shield"></div>
-                    <div class="sword"></div>
+                <div class="rider-torso">
+                    <div class="rider-head"></div>
+                    <div class="rider-helmet"></div>
+                    <div class="rider-plume"></div>
+                    <div class="rider-cape"></div>
+                    <div class="rider-leg"></div>
+                    <div class="rider-arm">
+                        <div class="rider-sword"></div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
