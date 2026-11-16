@@ -338,7 +338,7 @@
     <section class="hero">
       <h1>Practical tech help for everyday life.</h1>
       <p>
-        Confused by your home Wi-Fi, dealing with a slow computer, or putting off a frustrating tech chore? I'll help you understand your setup, make it run smoother, and get annoying tasks off your plate.
+        Confused by your home Wi-Fi, dealing with a sluggish computer, or putting off a frustrating tech chore? I'll help you understand your setup, make it run smoother, and get annoying tasks off your plate.
       </p>
       <div class="btn-group">
         <a href="#contact" class="btn">Get in Touch</a>
@@ -350,7 +350,7 @@
     <section id="how-i-help" class="section">
       <h2 class="section-title">How I Can Help</h2>
       <p class="section-subtitle">
-        No confusing jargon or pushy upsells. Just straightforward help tailored to whatever you're dealing with.
+        No confusing jargon or pushy upsells. Just straightforward support tailored to whatever you're dealing with.
       </p>
 
       <div class="grid">
@@ -358,7 +358,7 @@
           <span class="card-tag">01</span>
           <h3>Understand Your Setup</h3>
           <p>
-            Not sure why your Wi-Fi drops, where your files and photos are backing up, or how your devices connect? I'll walk through your current system with you and explain how everything works in plain English.
+            Wondering why your Wi-Fi keeps dropping, where your files are backing up, or how your devices link together? I'll walk through your system with you and explain how everything works in clear, plain English.
           </p>
         </div>
 
@@ -366,7 +366,7 @@
           <span class="card-tag">02</span>
           <h3>Optimize & Improve</h3>
           <p>
-            Once we see how you use your tech, I'll recommend simple, practical ways to speed up sluggish devices, organize messy accounts and passwords, and make your daily setup easier and safer to use.
+            Once we map out how you use your tech, I'll recommend simple, practical ways to speed up slow devices, organize messy accounts, and make your daily setup safer and easier to use.
           </p>
         </div>
 
@@ -385,14 +385,14 @@
       <h2 class="section-title">Why I Do This</h2>
       <div class="approach-box">
         <p>
-          I genuinely enjoy learning how different people set up and use their technology every day. Every home and workflow is a little different, and solving real-world tech puzzles is the best part of the job. Whether you need quick advice or hands-on help, reach out and let me know what you're working on.
+          I genuinely enjoy learning how different people set up and use their technology every day. Every home and workflow is unique, and solving real-world tech puzzles is the best part of the job. Whether you need quick advice or hands-on assistance, reach out and let me know what you're working on.
         </p>
       </div>
 
       <div class="steps-row">
         <div class="step-item">
           <strong>1. Start a conversation</strong>
-          Send an email to describe what's going on in plain words.
+          Send an email to describe what's going on in your own words.
         </div>
         <div class="step-item">
           <strong>2. Review your setup</strong>
@@ -400,7 +400,7 @@
         </div>
         <div class="step-item">
           <strong>3. Clear, custom quote</strong>
-          Agree on a fair price upfront before any work gets started.
+          Agree on a fair, upfront price before any work begins.
         </div>
       </div>
     </section>
@@ -420,3 +420,27 @@
             <span>Or copy address: <a href="mailto:alex@italexander.com" class="email-link">alex@italexander.com</a></span>
             <button id="copy-email-btn" class="copy-btn" onclick="copyEmail()">Copy</button>
           </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2026 IT Alexander
+    </div>
+  </footer>
+
+  <script>
+    function copyEmail() {
+      navigator.clipboard.writeText("alex@italexander.com");
+      const btn = document.getElementById("copy-email-btn");
+      btn.textContent = "Copied!";
+      setTimeout(() => {
+        btn.textContent = "Copy";
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
