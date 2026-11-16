@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IT Alexander | Personal Tech Help & Optimization</title>
+  <title>IT Alexander | Practical Tech Help for Everyday Life</title>
   <style>
     :root {
       --bg: #f8fafc;
@@ -42,9 +42,10 @@
 
     /* Navigation */
     header {
-      background-color: var(--surface);
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
-      padding: 20px 0;
+      padding: 18px 0;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -79,13 +80,13 @@
 
     /* Hero Section */
     .hero {
-      padding: 88px 0 72px;
+      padding: 84px 0 68px;
     }
 
     .hero h1 {
-      font-size: clamp(2.1rem, 4.5vw, 3.1rem);
+      font-size: clamp(2.15rem, 4.5vw, 3.15rem);
       font-weight: 800;
-      line-height: 1.18;
+      line-height: 1.16;
       letter-spacing: -0.03em;
       margin-bottom: 20px;
       color: var(--text);
@@ -94,7 +95,7 @@
     .hero p {
       font-size: 1.15rem;
       color: var(--muted);
-      max-width: 640px;
+      max-width: 630px;
       margin-bottom: 34px;
     }
 
@@ -143,14 +144,14 @@
     .section-title {
       font-size: 1.75rem;
       font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       letter-spacing: -0.02em;
     }
 
     .section-subtitle {
       color: var(--muted);
       font-size: 1.05rem;
-      max-width: 640px;
+      max-width: 620px;
       margin-bottom: 36px;
     }
 
@@ -167,6 +168,24 @@
       border-radius: 14px;
       padding: 28px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      border-color: #cbd5e1;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      background-color: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      letter-spacing: 0.03em;
     }
 
     .card h3 {
@@ -194,6 +213,29 @@
       color: var(--text);
     }
 
+    /* Simple Process Strip */
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .step-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 0.93rem;
+      color: var(--muted);
+    }
+
+    .step-item strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
     /* Contact Section */
     .contact-card {
       background-color: var(--surface);
@@ -211,9 +253,9 @@
 
     .contact-card p {
       color: var(--muted);
-      max-width: 520px;
+      max-width: 540px;
       margin: 0 auto 28px;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
     }
 
     .contact-actions {
@@ -228,22 +270,45 @@
       font-weight: 700;
       color: var(--accent);
       text-decoration: none;
-      padding: 10px 20px;
+      padding: 10px 22px;
       background: var(--accent-soft);
       border-radius: 8px;
       display: none;
     }
 
+    .email-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
     .email-link {
       color: var(--muted);
-      font-size: 0.95rem;
       text-decoration: none;
-      margin-top: 6px;
     }
 
     .email-link:hover {
       color: var(--accent);
       text-decoration: underline;
+    }
+
+    .copy-btn {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+      padding: 3px 9px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .copy-btn:hover {
+      background: #e2e8f0;
+      color: var(--text);
     }
 
     /* Footer */
@@ -257,7 +322,7 @@
 
     @media (max-width: 600px) {
       .hero {
-        padding: 60px 0 48px;
+        padding: 56px 0 44px;
       }
       .nav-links a {
         margin-left: 16px;
@@ -284,10 +349,10 @@
     <section class="hero">
       <h1>Practical tech help for everyday life.</h1>
       <p>
-        Whether you want to understand how your home devices work together, make your setup run faster, or just need an extra hand getting a frustrating tech task finished—let's figure it out together.
+        Confused by your home Wi-Fi, dealing with a slow computer, or putting off a frustrating tech chore? I'll help you understand your setup, make it run smoother, and get annoying tasks off your plate.
       </p>
       <div class="btn-group">
-        <a href="#contact" class="btn">Give Me a Call</a>
+        <a href="#contact" class="btn">Get in Touch</a>
         <a href="#how-i-help" class="btn btn-secondary">See How I Help</a>
       </div>
     </section>
@@ -301,23 +366,26 @@
 
       <div class="grid">
         <div class="card">
+          <span class="card-tag">01</span>
           <h3>Understand Your Setup</h3>
           <p>
-            Not sure why your Wi-Fi drops, where your files are backing up, or how your devices connect? I'll look at your current system with you and explain how everything works in plain English.
+            Not sure why your Wi-Fi drops, where your files and photos are backing up, or how your devices connect? I'll walk through your current system with you and explain how everything works in plain English.
           </p>
         </div>
 
         <div class="card">
+          <span class="card-tag">02</span>
           <h3>Optimize & Improve</h3>
           <p>
-            Once we see how you use your tech, I can recommend simple, practical ways to speed up slow computers, organize your accounts, or make your home setup run more smoothly.
+            Once we see how you use your tech, I'll recommend simple, practical ways to speed up sluggish devices, organize messy accounts and passwords, and make your daily setup easier and safer to use.
           </p>
         </div>
 
         <div class="card">
+          <span class="card-tag">03</span>
           <h3>Get Things Done</h3>
           <p>
-            Have a specific project you've been putting off—like setting up a new computer, fixing a printer, transferring photos, or cleaning up storage? Tell me what you need, and we'll get it knocked out.
+            Have a specific project you've been putting off—like setting up a new computer, fixing a stubborn printer, transferring photos, or freeing up storage? Tell me what you need, and we'll get it knocked out.
           </p>
         </div>
       </div>
@@ -328,8 +396,23 @@
       <h2 class="section-title">Why I Do This</h2>
       <div class="approach-box">
         <p>
-          I genuinely enjoy learning how different people set up and use their technology every day. Every home and workflow is a little different, and solving real-world tech puzzles is the best part of the job. Whether you need quick advice or hands-on help, reach out and let me know what you're working on—we'll take a look and put together a fair, custom quote.
+          I genuinely enjoy learning how different people set up and use their technology every day. Every home and workflow is a little different, and solving real-world tech puzzles is the best part of the job. Whether you need quick advice or hands-on help, reach out and let me know what you're working on.
         </p>
+      </div>
+
+      <div class="steps-row">
+        <div class="step-item">
+          <strong>1. Start a conversation</strong>
+          Call or email to describe what's going on in plain words.
+        </div>
+        <div class="step-item">
+          <strong>2. Review your setup</strong>
+          We look at what you have and what you're trying to accomplish.
+        </div>
+        <div class="step-item">
+          <strong>3. Clear, custom quote</strong>
+          Agree on a fair price upfront before any work gets started.
+        </div>
       </div>
     </section>
 
@@ -338,13 +421,17 @@
       <div class="contact-card">
         <h2>Let's Talk About Your Tech</h2>
         <p>
-          Give me a call to tell me what's going on, or send an email if you prefer to write it out first.
+          No technical knowledge needed—just tell me what's frustrating you. Give me a call to talk it through, or send an email if you prefer to write it out first.
         </p>
         
         <div class="contact-actions">
           <button id="reveal-btn" class="btn" onclick="revealPhone()">Show Phone Number</button>
           <a id="phone-display" href="#"></a>
-          <a href="mailto:alex@italexander.com" class="email-link">Or email me at alex@italexander.com</a>
+          
+          <div class="email-row">
+            <span>Or email me at <a href="mailto:alex@italexander.com" class="email-link">alex@italexander.com</a></span>
+            <button id="copy-email-btn" class="copy-btn" onclick="copyEmail()">Copy</button>
+          </div>
         </div>
       </div>
     </section>
@@ -358,7 +445,7 @@
 
   <script>
     function revealPhone() {
-      // Replace the two parts below with your real area code and number
+      // Replace the three parts below with your real area code and number digits
       const area = "555";
       const prefix = "123";
       const line = "4567";
@@ -373,6 +460,15 @@
       phoneLink.href = `tel:${raw}`;
       phoneLink.style.display = "inline-block";
       btn.style.display = "none";
+    }
+
+    function copyEmail() {
+      navigator.clipboard.writeText("alex@italexander.com");
+      const btn = document.getElementById("copy-email-btn");
+      btn.textContent = "Copied!";
+      setTimeout(() => {
+        btn.textContent = "Copy";
+      }, 2000);
     }
   </script>
 
